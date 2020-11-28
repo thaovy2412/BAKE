@@ -390,7 +390,7 @@ header p{
 
 .contact__form input{
     padding: 20px;
-    border: 1px solid black;
+    border: 1px solid red;
     border-radius: 3px;
     transition: all 0.5s;
 }
