@@ -1,0 +1,466 @@
+/* GLOBAL */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    /* 1rem = 18px */
+    /* rem dùng cho fs, margin, padding */
+    /* font-size: 18px; */
+    /* không khai báo mặc định 1rem =16px */
+}
+html,body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* header */
+header{
+    background-color: #4e2a84;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+}
+header ul{
+    list-style: none;
+}
+header ul a{
+    text-decoration: none;
+    color: white;
+}
+
+header li{
+    display: inline;
+}
+
+.header__content{
+    width: 70%;
+    margin: 0 auto;
+    /* margin: auto; */
+    padding: 20px 0;
+
+    display: flex;
+    /* thêm khoảng cách theo chiều ngang cho các con của flex */
+    justify-content: space-around;
+    /* canh nội dung thẻ con theo chiều dọc */
+    align-items: center;
+}
+
+header p{
+    /* font-size: 37px; */
+    font-size: 2.3125rem;
+    color: white;
+}
+
+/* CAROUSEL */
+.carousel{
+    background-image: url(../img/b3.jpg);
+    height: 800px;
+    /* giúp canh giữa thẻ con khi flex chỉ có 1 con */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel__content{
+    color: white;
+    text-align: center;
+}
+
+.carousel h1{
+    animation: upDown 3s linear 0s infinite;
+}
+
+/* INTRO */
+.intro{
+    display: grid;
+    /* chỉ cần khai báo cột khi nội dung chỉ gôm theo cột */
+    /* grid-template-columns:25% 25% 25% 25% ; */
+    /* grid-template-columns:repeat(4,25%); */
+    /* fr: phân số */
+    /* mỗi cột có kích thước 1/4 */
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+.intro__ab1{
+    /* theo đường bắt đầu và đường kết thúc */
+    /* grid-column:2 / 4 ; */
+    /* theo đường bắt đầu và số cột sẽ chiếm */
+    grid-column: 2 / span 2;
+}
+.intro__best{
+    /* grid-column:1 / 3 ; */
+    grid-column: 1 / span 2;
+}
+
+.intro__ab4{
+    /* grid-column: 3 / 5; */
+    grid-column: 3 / span 2;
+}
+
+.intro__item img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* NUMBER */
+.number{
+    padding: 70px 0;
+}
+.number__content{
+    display: flex;
+    justify-content: space-around;
+
+    width: 70%;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+/* .number__item p:nth-child(1) */
+.number__item p:first-child{
+    font-size:32px;
+    color: #4e2a84;
+} 
+.number__item p:last-child{
+    font-size: 23px;
+} 
+
+.number__item{
+    width: 25%;
+}
+
+/* SERVICE */
+.services{
+    padding: 70px 0;
+}
+.services__content{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;   
+    text-align:  center;
+}
+.services__item{
+    padding: 0 20px;
+}
+
+.services__item i{
+    color: #4e2a84;
+    font-size: 3rem;
+
+    width: 100px;
+    height: 100px;
+    /* chỉ áp dụng khi text chỉ có 1 hàng , thường áp dụng khi canh icon giữa theo chiều dọc*/
+    line-height: 100px;
+    border: 1px solid #4e2a84;
+    border-radius: 50%;
+    /* thuộc tính khi thay đổi */
+    /* transition-property: color; */
+    /* tốc độ thay đổi */
+    /* transition-duration: 1s; */
+    /* khoảng chờ thời gian */
+    /* transition-delay: 0s; */
+    transition: all 0.5s;
+}
+
+.services__item:hover i{
+    color: #ff0e83;
+}
+
+.services__item button{
+    background-color: #ff0e83;
+    color: white;
+}
+
+.services__item button:hover{
+    background-color: white;
+    color: #ff0e83;
+}
+
+/* GALLERY */
+.gallery__content{
+    display: grid;
+    /* Mỗi cột kích thước 1/4 */
+    grid-template-columns: repeat(4,1fr);
+    /* grid-gap: 20px ; */
+    gap: 30px;
+    padding: 0 15px;
+}
+
+.gallery__g1{
+    /* grid-column: 1 / 3 ; */
+    grid-column: 1 / span 2;
+}
+
+.gallery__g6{
+    /* grid-column: 3 / 5; */
+    grid-column: 3 / span 2;
+}
+
+.gallery__item img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.gallery__item{
+    position: relative;
+}
+
+.gallery__overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(48, 133, 163, 0.2);
+    color: white;
+    text-align: right;
+    padding: 50px 30px;
+}
+
+.gallery__overlay p{
+    position: absolute;
+    bottom: 50px;
+    right: 30px;
+    transform: translateY(50px);
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+.gallery__overlay:hover p{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* .gallery__overlay h3::before{
+    content: 'vvvvv';
+}
+
+.gallery__overlay h3::after{
+    content: 'yyyy';
+} */
+
+/* inline không xét được kích thước, không bị rớt hàng */
+.gallery__overlay h3::after{
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    display: block;
+    margin-top: 10px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.gallery__overlay:hover h3::after{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.gallery__overlay h3{
+    transform: translateY(50px);
+    transition: all 0.5s;
+}
+
+.gallery__overlay:hover h3{
+    transform: translateY(0);
+}
+
+/* TEAM */
+.team__content{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px 25px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.team__item img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.team__item{
+    position: relative;
+}
+
+.team__pink{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #ff0e83;
+    color: white;
+    width: 100%;
+    padding: 20px;
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.team__black{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 50px 30px;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.team__item:hover .team__pink{
+    opacity: 0;
+}
+
+.team__item:hover .team__black{
+    opacity: 1;
+}
+
+.team__item2{
+    overflow: hidden;
+}
+
+.team__item2 .team__black{
+    /* opacity: 1; */
+    transform: translateX(-100%);
+    transition: all 0.5s;
+}
+
+.team__item2:hover .team__black{
+    transform: translateX(0);
+}
+
+.team__item3 .team__black{
+    /* opacity: 1; */
+    transform: rotate(0deg);
+    transition: all 0.5s;
+}
+
+.team__item3:hover .team__black{
+    transform: rotate(360deg);
+}
+
+.team__item4 .team__black{
+    /* opacity: 1; */
+    /* Cấp số nhân */
+    transform: scale(0);
+    transition: all 0.5s;
+}
+
+.team__item4:hover .team__black{
+    transform: scale(1);
+}
+
+/* COMMENTS */
+.comments{
+    text-align: center;
+    padding: 70px 0;
+}
+
+.comments__content{
+    width: 70%;
+    margin: 0 auto;
+    padding: 30px;
+    border: 3px solid #ff0e83;
+}
+
+.comments .owl-theme .owl-dots .owl-dot.active span{
+    background: black;
+}
+
+/* CONTACT */
+.contact__form form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 70%;
+    margin: 0 auto;
+    gap: 10px 20px;
+}
+
+.contact__form textarea, .contact__form button{
+    grid-column: 1 / span 2;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.contact__form input{
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+.contact__form input:focus{
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.contact__form textarea:focus{
+    outline: none;
+}
+
+/* tắt tính năng kéo giãn textarea */
+.contact__form textarea{
+    resize: none;
+}
+
+.contact__form textarea::placeholder{
+    color: black;
+}
+
+
+.contact__map iframe{
+    width: 100%;
+}
+
+/* BACK TO TOP */
+.backToTop{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 78px;
+    /* do thẻ a inline không xét được kích thước */
+    display: block;
+    border: 2px solid blue;
+    border-radius: 50%;
+    font-size: 3rem;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    /* opacity: trong suốt, vẫn bị focus */
+    opacity: 0;
+    /* ẩn, không thao tác được */
+    visibility: hidden;
+    /* kết hợp cả hai, opacity mới dùng được transition */
+}
+
+.cd-top--is-visible{
+    visibility: visible;
+    opacity: 1;
+}
+
+@keyframes upDown{
+    /* 100s */
+    /* 1 chu kỳ chuyển động */
+    0%{}
+    25%{
+        transform: translateY(-100px) scale(1.1);
+    }
+    50%{
+        transform: translateY(0) scale(1);
+    }
+    75%{
+        transform: translateY(100px) scale(1.1);
+    }
+    100%{
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+
