@@ -16,7 +16,7 @@ html,body{
 
 /* header */
 header{
-    background-color: yellow;
+    background-color: red;
     position: fixed;
     z-index: 9999;
     width: 100%;
